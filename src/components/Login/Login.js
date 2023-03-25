@@ -15,9 +15,17 @@ const Login = (props) => {
 
   useEffect(()=>{
 
+  const indentifier = setTimeout(()=>{ 
+    console.log('check Vaildity')
     setFormIsValid(
-      enteredEmail.includes('@') && enteredPassword.trim().length > 6 && enteredCollege.trim().length > 10
-    );
+     enteredEmail.includes('@') && enteredPassword.trim().length > 6 && enteredCollege.trim().length > 10
+   );
+  },500) 
+
+  return ()=>{
+    console.log('Cleaner')
+clearInterval(indentifier)
+  }
 
   },[ enteredEmail , enteredPassword , enteredCollege])
 
